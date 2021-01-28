@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TeamMember>
+
+@{
+    ViewData["Title"] = "teamMember Search";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Team Member Search page.</h1>
+    <h3>Search for a Team Member that meets your needs.</h3>
+
+    <div>
+        <form asp-controller="TeamMember" asp-action="SearchTeamMember" method="get">
+            <div class="row">
+                <input name="teamMemberName" class="form-control" placeholder="Enter the last name of the team member you are looking for.">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </form>
+    </div>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th><p><strong> Search Results </strong></p></th>
+            </tr>
+        </thead>
+        @if (Model != null)
+        {
+
+            <tbody>
+
+                @foreach (var a in Model)
+                {
+                    <tr>
+                        <td>
+                            <a Asp-route-id="@a.Id">@a.FirstName</a>
+                        </td>
+                        <td>
+                            <a Asp-route-id="@a.Id">@a.LastName</a>
+                        </td>
+                        <td>
+                            <a Asp-route-id="@a.Id">@a.Age</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        }
+    </table>
+</div>

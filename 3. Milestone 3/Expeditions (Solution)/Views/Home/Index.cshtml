@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Himalayan Expeditions";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="text-center">
+            <img src="~/images/Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg" alt="Mount Everest as seen from Drukair2" width="1024" />
+        </div>
+    </div>
+</div>
+@*
+    Your implementation here.  I will provide some html code for the home page at the exam.
+*@
+<div>
+    <p> News Articles </p>
+<table class="table table-dark table-striped table-sm w-75" style="margin: 0 auto; ">
+    <thead>
+        <tr>
+            <th scope="col" style="text-align:center">Date</th>
+            <th scope="col" style="text-align:center">Title</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in ViewBag.News)
+        {
+<tr>
+    <td>
+        @t.Date
+    </td>
+    <td>
+        @t.Title
+    </td>
+    <td>
+        @t.Description
+    </td>
+</tr>
+}
+    </tbody>
+</table>
+    </div>
+
+<table class="table table-striped table-dark">
+    <thead>
+    <tr>
+        <th scope="col">Name of Peaks, reason for Terminating, and Year of incidents</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        @if (!item.TerminationReason.Contains("Success"))
+        {
+            <tr>
+                <th scope="row">@item.Peak.Name</th>
+                <td>@item.TerminationReason</td>
+                <td>@item.Year</td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
+<small>Data and idea for this app: Binit Shrestha, WOU Senior project class 2020. Photo above <a href="https://en.wikipedia.org/wiki/Mount_Everest#/media/File:Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg">from Wikipedia</a>.  Data from <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-09-22/readme.md">R for Data Science TidyTuesday: Himalayan Climbing Expeditions</a></small>

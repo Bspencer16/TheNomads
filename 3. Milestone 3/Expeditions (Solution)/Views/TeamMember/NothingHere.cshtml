@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "teamMember Search";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Team Member Search page.</h1>
+    <h3>Search for a Team Member that meets your needs.</h3>
+
+    <div>
+        <form asp-controller="TeamMember" asp-action="SearchTeamMember" method="get">
+            <div class="row">
+                <input name="teamMemberName" class="form-control" placeholder="Enter the last name of the team member you are looking for.">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Search" />
+        </form>
+    </div>
+
+    <h3>No Member found. Please Try Again.</h3>
+
+</div>
+
+
