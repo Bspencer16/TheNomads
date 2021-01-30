@@ -21,7 +21,7 @@ namespace Expeditions.Controllers
         }
 
         [HttpGet]
-        public IActionResult searchTeamMember(string teamMemberName)
+        public IActionResult SearchTeamMember(string teamMemberName)
         {
 
             if (string.IsNullOrEmpty(teamMemberName) == false)

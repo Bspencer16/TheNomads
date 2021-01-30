@@ -356,3 +356,5 @@ MigrationBackup/
 #Mac spam files
 *.DS_Store
 
+*.orig
+
