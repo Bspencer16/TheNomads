@@ -34,11 +34,17 @@ CREATE TABLE [NewsArticle] (
   )
   GO
 
+CREATE TABLE [ExpeditionMap] (
+  [TeamMemberID] INT,
+  [ExpeditionID] INT
+  )
+GO
+
 CREATE TABLE [TeamMember] (
   [ID] INT PRIMARY KEY IDENTITY(1, 1),
-  [FirstName] NVARCHAR(30),
-  [LastName] NVARCHAR(30),
-  [Age]		 INT
+  [FirstName] NVARCHAR(50),
+  [LastName] NVARCHAR(50),
+  [BirthDate] DATE
   )
 GO
 
@@ -50,4 +56,7 @@ GO
 
 ALTER TABLE [Expedition] ADD CONSTRAINT [Expedition_FK_Peak] FOREIGN KEY ([PeakID]) REFERENCES [Peak] ([ID])
 ALTER TABLE [Expedition] ADD CONSTRAINT [Expedition_FK_TrekkingAgency] FOREIGN KEY ([TrekkingAgencyID]) REFERENCES [TrekkingAgency] ([ID])
+ALTER TABLE [ExpeditionMap] ADD CONSTRAINT [ExpeditionMap_FK_Expedition] FOREIGN KEY ([ExpeditionID]) REFERENCES [Expedition] ([ID])
+ALTER TABLE [ExpeditionMap] ADD CONSTRAINT [ExpeditionMap_FK_TeamMember] FOREIGN KEY ([TeamMemberID]) REFERENCES [TeamMember] ([ID])
+ALTER TABLE [TeamMember] ADD CONSTRAINT [TeamMember_FK_Nation] FOREIGN KEY ([NationalityID]) REFERENCES [Nation] ([ID])
 GO
